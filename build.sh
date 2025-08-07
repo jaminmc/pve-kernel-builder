@@ -17,13 +17,13 @@ while getopts ':d:u:b:s' OPTION; do
         ?|h|help)
             echo "Usage: $(basename $0) [-d <DEBIAN_RELEASE>] [-u <REPO_URL>] -b <REPO_BRANCH>"
             echo
-            echo "Ex: $(basename $0) -d bullseye -u git://git.proxmox.com/git/pve-kernel.git -b master"
+            echo "Ex: $(basename $0) -d bookworm -u git://git.proxmox.com/git/pve-kernel.git -b master"
             exit 1
             ;;
     esac
 done
 
-DEBIAN_RELEASE=${DEBIAN_RELEASE:-bullseye}
+DEBIAN_RELEASE=${DEBIAN_RELEASE:-bookworm}
 REPO_URL=${REPO_URL:-git://git.proxmox.com/git/pve-kernel.git}
 
 if [ -z "$REPO_BRANCH" ]; then

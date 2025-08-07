@@ -7,9 +7,9 @@ echoerr() {
 }
 
 re='config/([^/]+)/version'
-for commit in `yq '.commits[] as $c | $c.id' -`; do
+for commit in $(yq '.commits[] as $c | $c.id' -); do
     #echoerr "Commit: ${commit}"
-    affected_files=$(git log --format= --name-status -n 1 $commit | cut -f 2)
+    affected_files=$(git log --format= --name-status -n 1 "$commit" | cut -f 2)
     for file in $affected_files; do
         #echoerr "analyzing $file"
         if [[ $file =~ $re ]]; then
