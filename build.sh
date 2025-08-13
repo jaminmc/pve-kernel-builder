@@ -49,6 +49,6 @@ docker build \
 
 if [ "$SKIP_BUILD" != "1" ]; then
     echo Building PVE kernel...
-    mkdir -p ./output
+    mkdir -p ./output && chmod 777 ./output
     docker run -v $(pwd)/output:/build/output ${IMAGE_NAME} scripts/build-kernel.sh
 fi
